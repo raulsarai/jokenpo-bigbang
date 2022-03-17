@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Pedra-Papel-Tesoura-Lagarto-Spock</string>
+    <string name="pedra_Tesoura">PEDRA AMASSA A TESOURA!</string>
+    <string name="voceGanhou">VOCÊ GANHOU ;D</string>
+    <string name="vocePerdeu">VOCÊ PERDEU ;(</string>
+    <string name="tesoura_Papel">TESOURA CORTA O PAPEL!</string>
+    <string name="empate">EMPATAMOS ;D !! BORA VALENDO UMA COCA AGORA?</string>
+    <string name="papel_pedra">PAPEL COBRE A PEDRA!</string>
+    <string name="pedra_lagarto">PEDRA ESMAGA O LAGARTO!</string>
+    <string name="lagarto_spok">LAGARTO ENVENENA O SPOCK!</string>
+    <string name="spock_tesoura">SPOCK DERRETE A TESOURA!</string>
+    <string name="tesoura_lagarto">TESOURA DECAPITA O LAGARTO!</string>
+    <string name="lagarto_papel">LAGARTO COME O PAPEL!</string>
+    <string name="papel_spock">PAPEL REFUTA O SPOCK!</string>
+    <string name="spock_pedra">SPOCK VAPORIZA A PEDRA!</string>
+    <string name="pedra">PEDRA</string>
+    <string name="tesoura">TESOURA</string>
+    <string name="papel">PAPEL</string>
+    <string name="lagarto">LAGARTO</string>
+    <string name="spock">SPOCK</string>
+</resources>
