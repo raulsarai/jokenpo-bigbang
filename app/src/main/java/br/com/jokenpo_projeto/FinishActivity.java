@@ -37,15 +37,15 @@ public class FinishActivity extends AppCompatActivity {
         String placaruser = resultado.getString("placarUser");
 
         if (resultadoUser == 0) {
-            header1.setText("PARABÉNS");
-            header2.setText("VOCÊ VENCEU!");
+            header1.setText(R.string.congratulations);
+            header2.setText(R.string.you_win);
             placarUser.setText(placaruser);
             placarApp.setText(placarapp);
 
         }
         if (resultadoApp == 1) {
-            header1.setText("QUE PENA");
-            header2.setText("VOCÊ PERDEU!");
+            header1.setText(R.string.sorry);
+            header2.setText(R.string.you_lose);
             placarUser.setText(placaruser);
             placarApp.setText(placarapp);
         }
@@ -53,10 +53,16 @@ public class FinishActivity extends AppCompatActivity {
 
 
     }
+    public void novoJogador(View view){
+
+        startActivity(new Intent(getBaseContext(), UserActivity.class));
+        finish();
+    }
 
     public void jogarDenovo(View view){
 
-        startActivity(new Intent(getBaseContext(), MainActivity.class));
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
         finish();
             }
 

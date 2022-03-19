@@ -73,23 +73,24 @@
     <Button
         android:id="@+id/novo_jogador"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="49dp"
         android:layout_marginBottom="8dp"
         android:background="#FF9800"
         android:onClick="novoJogador"
         android:text="NOVO JOGADOR"
         android:textColor="@color/white"
-        android:textSize="36sp" />
+
+        android:textSize="26sp" />
 
     <Button
         android:id="@+id/jogar_denovo"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="62dp"
         android:background="#FF9800"
         android:onClick="jogarDenovo"
         android:text="JOGAR NOVAMENTE"
         android:textColor="@color/white"
-        android:textSize="28sp" />
+        android:textSize="26sp" />
 
 
 </LinearLayout>

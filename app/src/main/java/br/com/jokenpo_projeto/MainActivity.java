@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle dados = getIntent().getExtras();
         String nomeUsuario = dados.getString("userName");
         nomeUser.setText(nomeUsuario);
+
     }
 
     @Override
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void selecionadoPedra(View view) {
         this.opcaoSelecionada("PEDRA");
+
     }
 
     public void selecionadoTesoura(View view) {
@@ -61,122 +63,138 @@ public class MainActivity extends AppCompatActivity {
         this.opcaoSelecionada("SPOCK");
     }
 
-    public int pontuacaoUser () {
+    public void pontuacaoUser () {
         this.contPontuacaoUser++;
         String ContPontuacaoApp = String.valueOf(contPontuacaoApp);
         String ContPontuacaoUser = String.valueOf(this.contPontuacaoUser);
         pontoUser.setText(String.valueOf(this.contPontuacaoUser));
-        if (this.contPontuacaoUser == 10) {
+        if (this.contPontuacaoUser == 2) {
             Intent intent = (new Intent(getApplicationContext(), FinishActivity.class));
             intent.putExtra("userVence", 0);
             intent.putExtra("placarApp", ContPontuacaoApp);
             intent.putExtra("placarUser", ContPontuacaoUser);
             startActivity(intent);
+            //finish();
         }
-        return 0;
     }
 
-    public int pontuacaoApp () {
+    public void pontuacaoApp () {
         contPontuacaoApp++;
         String ContPontuacaoApp = String.valueOf(contPontuacaoApp);
         String ContPontuacaoUser = String.valueOf(this.contPontuacaoUser);
         pontoApp.setText(String.valueOf(contPontuacaoApp));
-        if (contPontuacaoApp == 10) {
+        if (contPontuacaoApp == 2) {
             Intent intent = (new Intent(getApplicationContext(), FinishActivity.class));
             intent.putExtra("appVence", 1);
             intent.putExtra("placarUser", ContPontuacaoUser);
             intent.putExtra("placarApp", ContPontuacaoApp);
             startActivity(intent);
+            //finish();
         }
-        return 0;
     }
 
 
-    public int opcaoSelecionada(String opcaoSelecionada) {
+    public void opcaoSelecionada(String opcaoSelecionada) {
 
         String opcaoApp = geraOpcoesAleatorias();
         tituloApp.setText(opcaoApp);
-        escolhaUser.setText("VOCÊ SELECIONOU " + opcaoSelecionada);
+        escolhaUser.setText(String.format("%s%s", getString(R.string.userSelect), opcaoSelecionada));
         switchOpcaoApp(imgResultado, opcaoApp);
 
-
-
-            if (opcaoSelecionada.equals(getString(R.string.pedra)) && opcaoApp.equals(getString(R.string.tesoura))) {
-                labelResultado.setText(getString(R.string.pedra_Tesoura) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.pedra)) && opcaoSelecionada.equals(getString(R.string.tesoura))) {
-                labelResultado.setText(getString(R.string.pedra_Tesoura) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.tesoura)) && opcaoApp.equals(getString(R.string.papel))) {
-                labelResultado.setText(getString(R.string.tesoura_Papel) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.tesoura)) && opcaoSelecionada.equals(getString(R.string.papel))) {
-                labelResultado.setText(getString(R.string.tesoura_Papel) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.papel)) && opcaoApp.equals(getString(R.string.pedra))) {
-                labelResultado.setText(getString(R.string.papel_pedra) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.papel)) && opcaoSelecionada.equals(getString(R.string.pedra))) {
-                labelResultado.setText(getString(R.string.papel_pedra) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.pedra)) && opcaoApp.equals(getString(R.string.lagarto))) {
-                labelResultado.setText(getString(R.string.pedra_lagarto) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.pedra)) && opcaoSelecionada.equals(getString(R.string.lagarto))) {
-                labelResultado.setText(getString(R.string.pedra_lagarto) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.lagarto)) && opcaoApp.equals(getString(R.string.spock))) {
-                labelResultado.setText(getString(R.string.lagarto_spok) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.lagarto)) && opcaoSelecionada.equals(getString(R.string.spock))) {
-                labelResultado.setText(getString(R.string.lagarto_spok) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.spock)) && opcaoApp.equals(getString(R.string.tesoura))) {
-                labelResultado.setText(getString(R.string.spock_tesoura) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.spock)) && opcaoSelecionada.equals(getString(R.string.tesoura))) {
-                labelResultado.setText(getString(R.string.spock_tesoura) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.tesoura)) && opcaoApp.equals(getString(R.string.lagarto))) {
-                labelResultado.setText(getString(R.string.tesoura_lagarto) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.tesoura)) && opcaoSelecionada.equals(getString(R.string.lagarto))) {
-                labelResultado.setText(getString(R.string.tesoura_lagarto) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.lagarto)) && opcaoApp.equals(getString(R.string.papel))) {
-                labelResultado.setText(getString(R.string.lagarto_papel) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.lagarto)) && opcaoSelecionada.equals(getString(R.string.papel))) {
-                labelResultado.setText(getString(R.string.lagarto_papel) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.papel)) && opcaoApp.equals(getString(R.string.spock))) {
-                labelResultado.setText(getString(R.string.papel_spock) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.papel)) && opcaoSelecionada.equals(getString(R.string.spock))) {
-                labelResultado.setText(getString(R.string.papel_spock) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else if (opcaoSelecionada.equals(getString(R.string.spock)) && opcaoApp.equals(getString(R.string.pedra))) {
-                labelResultado.setText(getString(R.string.spock_pedra) + getString(R.string.voceGanhou));
-                pontuacaoUser();
-            } else if (opcaoApp.equals(getString(R.string.spock)) && opcaoSelecionada.equals(getString(R.string.pedra))) {
-                labelResultado.setText(getString(R.string.spock_pedra) + getString(R.string.vocePerdeu));
-                pontuacaoApp();
-            } else {
-                labelResultado.setText(R.string.empate);
-            }
-            return 0;
+        switch (opcaoSelecionada) {
+            case "PEDRA":
+                switch (opcaoApp) {
+                    case "TESOURA":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.pedra_Tesoura), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "lagarto":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.pedra_lagarto), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "PEDRA":
+                        labelResultado.setText(R.string.empate);
+                        break;
+                    default:
+                        pontuacaoApp();
+                }
+                break;
+            case "PAPEL":
+                switch (opcaoApp) {
+                    case "PEDRA":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.papel_pedra), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "SPOCK":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.papel_spock), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "PAPEL":
+                        labelResultado.setText(R.string.empate);
+                        break;
+                    default:
+                        pontuacaoApp();
+                }
+                break;
+            case "TESOURA":
+                switch (opcaoApp) {
+                    case "PAPEL":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.tesoura_Papel), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "LAGARTO":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.tesoura_lagarto), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "TESOURA":
+                        labelResultado.setText(R.string.empate);
+                        break;
+                    default:
+                        pontuacaoApp();
+                }
+                break;
+            case "LAGARTO":
+                switch (opcaoApp) {
+                    case "SPOCK":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.lagarto_spok), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "PAPEL":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.lagarto_papel), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "LAGARTO":
+                        labelResultado.setText(R.string.empate);
+                        break;
+                    default:
+                        pontuacaoApp();
+                }
+                break;
+            case "SPOCK":
+                switch (opcaoApp) {
+                    case "TESOURA":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.spock_tesoura), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "PEDRA":
+                        labelResultado.setText(String.format("%s%s", getString(R.string.spock_pedra), getString(R.string.voceGanhou)));
+                        pontuacaoUser();
+                        break;
+                    case "SPOCK":
+                        labelResultado.setText(R.string.empate);
+                        break;
+                    default:
+                        pontuacaoApp();
+                }
+                break;
         }
-
-
-
-
+    }
 
     @NonNull
     private String geraOpcoesAleatorias() {
         int numero = new Random().nextInt(5);
         String[] opcoes = {"PEDRA", "PAPEL", "TESOURA", "LAGARTO", "SPOCK"};
-        String opcaoApp = opcoes[numero];
-        return opcaoApp;
+        return opcoes[numero];
     }
 
     private void switchOpcaoApp(ImageView imgResultado, @NonNull String opcaoApp) {

@@ -18,4 +18,9 @@
     <string name="papel">PAPEL</string>
     <string name="lagarto">LAGARTO</string>
     <string name="spock">SPOCK</string>
+    <string name="userSelect">VOCÊ SELECIONOU </string>
+    <string name="congratulations">PARABÉNS</string>
+    <string name="you_win">VOCÊ VENCEU!</string>
+    <string name="sorry">QUE PENA</string>
+    <string name="you_lose">VOCÊ PERDEU!</string>
 </resources>

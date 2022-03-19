@@ -21,6 +21,11 @@ public class UserActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     public void btn_Jogar(View view){
         nomeUsuario     = findViewById(R.id.inputNome);
         nomeVar         = nomeUsuario.getText().toString();
@@ -31,6 +36,7 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = (new Intent(getApplicationContext(), MainActivity.class));
                 intent.putExtra("userName", nomeVar);
                 startActivity(intent);
+                nomeUsuario.setText("");
             }
         }, 0);
     }
